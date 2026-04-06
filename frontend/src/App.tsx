@@ -174,9 +174,17 @@ export default function App() {
         </div>
         <div className="status-card">
           <span className={`dot ${health?.status === "ok" ? "live" : ""}`} />
-          <div>
+          <div className="status-content">
             <p className="status-label">Backend status</p>
             <strong>{health ? `${health.status} / ${health.service}` : "loading"}</strong>
+            <a
+              className="external-link-button"
+              href="http://127.0.0.1:5001"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Pneumonia Task
+            </a>
           </div>
         </div>
       </section>

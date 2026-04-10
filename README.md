@@ -1,36 +1,46 @@
 # Surgical Multi-Task AI Assistant
 
-A web-based platform for surgical multi-task scene understanding and medical image analysis.  
+A web-based platform for surgical multi-task scene understanding and medical image analysis.
 The system integrates multiple AI modules for endoscopic analysis and pneumonia detection, with an interactive interface for real-time inference.
+
+---
+
+## 🖥️ Frontend Preview
+
+|              Web Interface              |
+| :-------------------------------------: |
+| ![Frontend UI](sample_img/frontend.png) |
 
 ---
 
 ## 🚀 Features
 
-- Multi-task surgical scene understanding (EndoARSS)
-- Pneumonia detection via image segmentation & classification (multilix)
-- Web-based interactive interface
-- Backend–frontend separation (FastAPI + React)
+* Multi-task surgical scene understanding (EndoARSS)
+* Pneumonia detection via image segmentation & classification (multilix)
+* Web-based interactive interface
+* Backend–frontend separation (FastAPI + React)
 
 ---
 
 ## 🧠 Modules
 
 ### EndoARSS
+
 Endoscopic multi-task analysis module for surgical scene understanding, including activity recognition, detection, and segmentation.
 
-| Detection & Recognition | Segmentation |
-|:-----------------------:|:------------:|
+|                Detection & Recognition               |                 Segmentation                 |
+| :--------------------------------------------------: | :------------------------------------------: |
 | ![Detection & Recognition](sample_img/detection.png) | ![Segmentation](sample_img/segmentation.png) |
 
 ---
 
 ### multilix
+
 Medical image analysis module for pneumonia detection, supporting both image segmentation and classification tasks. Built with PyTorch and Flask.
 
-| Pneumonia Detection |
-|:-------------------:|
-| ![Pneumonia Detection](sample_img/multilix_pneumonia.png) |
+|                Pneumonia Detection               |
+| :----------------------------------------------: |
+| ![Pneumonia Detection](sample_img/Pneumonia.png) |
 
 ---
 
@@ -70,7 +80,11 @@ cd modules/multilix
 pip install flask torch torchvision opencv-python numpy pillow
 ```
 
-Ensure the pre-trained model file is placed at `modules/multilix/app/model/multimix_trained_model.pth`.
+Ensure the pre-trained model file is placed at:
+
+```
+modules/multilix/app/model/multimix_trained_model.pth
+```
 
 ---
 
@@ -122,13 +136,11 @@ Frontend (React)
 
 ## 📌 Notes
 
-- Ensure backend is running before frontend
-- GPU is recommended for better performance
-- Configure model paths if needed
+* Ensure backend is running before frontend
+* GPU is recommended for better performance
+* Configure model paths if needed
 
 ---
-
-
 
 ## 📄 License
 

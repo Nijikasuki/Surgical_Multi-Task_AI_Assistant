@@ -1,0 +1,3 @@
+[submodule "modules/MultiMix"]
+	path = modules/MultiMix
+	url = https://github.com/ayaanzhaque/MultiMix

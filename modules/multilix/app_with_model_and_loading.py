@@ -10,8 +10,10 @@ import torch.nn.functional as F
 
 print("All imports successful")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'static/uploads'
+app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, 'static', 'uploads')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 # 确保上传目录存在
@@ -133,7 +135,7 @@ model = MultiMix(1).to(device)
 print("Model created successfully")
 
 # 加载预训练模型
-checkpoint_path = 'MultiMix/sample_data/multimix_trained_model.pth'
+checkpoint_path = os.path.join(BASE_DIR, 'app', 'model', 'multimix_trained_model.pth')
 print(f"Loading model from: {checkpoint_path}")
 try:
     if os.path.exists(checkpoint_path):
@@ -167,7 +169,7 @@ def transform_image(img):
 # 静态文件服务
 @app.route('/static/<path:path>')
 def send_static(path):
-    return send_from_directory('static', path)
+    return send_from_directory(os.path.join(BASE_DIR, 'static'), path)
 
 # 预测 API
 @app.route('/predict', methods=['POST'])

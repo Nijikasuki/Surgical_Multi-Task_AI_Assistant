@@ -1,3 +1,9 @@
+## 🤖 Built With
+
+This project was developed using [Claude Code](https://claude.ai/code) with the Claude Opus 4.6 model via vibe coding.
+
+---
+
 # Surgical Multi-Task AI Assistant
 
 A web-based platform for surgical multi-task scene understanding and medical image analysis.
@@ -55,11 +61,13 @@ cd Surgical_Multi-Task_AI_Assistant
 
 ---
 
-### 2. Install backend dependencies
+### 2. Install dependencies
 
 ```bash
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 ```
+
+This installs all packages required by the backend (FastAPI), the multilix module (Flask + PyTorch), and shared utilities.
 
 ---
 
@@ -73,12 +81,7 @@ Place or configure the model files according to your backend settings.
 
 ---
 
-### 4. Set up multilix environment
-
-```bash
-cd modules/multilix
-pip install flask torch torchvision opencv-python numpy pillow
-```
+### 4. Set up multilix model
 
 Ensure the pre-trained model file is placed at:
 
@@ -90,17 +93,31 @@ modules/multilix/app/model/multimix_trained_model.pth
 
 ## ▶️ Usage
 
-### Start main backend
+### One-click startup (Windows)
+
+Double-click `start.bat` in the project root. It will open three separate terminal windows and start all services automatically.
+
+| Service | URL |
+| :------ | :-- |
+| Backend (FastAPI) | http://127.0.0.1:8000 |
+| Frontend (React) | http://127.0.0.1:5173 |
+| Multilix (Flask) | http://127.0.0.1:5001 |
+
+---
+
+### Start manually
+
+#### Backend
 
 ```bash
 python main.py
 ```
 
-Backend runs at: http://127.0.0.1:8000
+Runs at: http://127.0.0.1:8000 — API docs available at http://127.0.0.1:8000/docs
 
 ---
 
-### Start frontend
+#### Frontend
 
 ```bash
 cd frontend
@@ -108,11 +125,16 @@ npm install
 npm run dev
 ```
 
-Frontend runs at: http://127.0.0.1:5173
+Runs at: http://127.0.0.1:5173
 
 ---
 
-### Start multilix module (standalone)
+#### Multilix module (standalone)
+
+A standalone web interface for pneumonia detection. Upload a chest X-ray image to get:
+
+* **Segmentation mask** — highlights the lesion region
+* **Classification result** — NORMAL or PNEUMONIA
 
 ```bash
 cd modules/multilix
@@ -120,6 +142,8 @@ python app_with_model_and_loading.py
 ```
 
 Runs at: http://127.0.0.1:5001
+
+Requires the pre-trained model at `modules/multilix/app/model/multimix_trained_model.pth`.
 
 ---
 
@@ -139,6 +163,9 @@ Frontend (React)
 * Ensure backend is running before frontend
 * GPU is recommended for better performance
 * Configure model paths if needed
+
+
+
 
 ---
 
